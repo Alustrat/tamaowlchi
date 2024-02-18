@@ -40,16 +40,16 @@ fn main() {
 
     let mut tamaowlchi_opt = load_current_tamaowlchi();
 
-    if tamaowlchi_opt.is_none()  {
+    if tamaowlchi_opt.is_none() || (tamaowlchi_opt.as_ref().unwrap().is_dead)  {
         if let Commands::New = &cli.command { 
             tamaowlchi_opt = Some(user_actions::create_new_tamaowlchi());
-        } else {
+        } else if tamaowlchi_opt.is_none()  {
             eprintln!("You don't have any tamaowlchi. Use 'tamaowlchi new' to get a new one !");
             process::exit(1)
         }
     }
 
-    
+
     let mut tamaowlchi = tamaowlchi_opt.unwrap();
 
     match &cli.command {
