@@ -5,14 +5,37 @@ use std::cmp;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Tamaowlchi {
+    #[serde(default)]
     pub age: i32,
+    #[serde(default)]
     pub is_awake: bool,
+    #[serde(default)]
     pub is_ill: bool,
+    #[serde(default)]
     pub energy: i32,
+    #[serde(default)]
     pub health: i32,
+    #[serde(default)]
     pub feed: i32,
+    #[serde(default)]
     pub poops: i32,
+    #[serde(default)]
     last_update: u64, // timestamp
+}
+
+impl Default for Tamaowlchi {
+    fn default() -> Self {
+        Tamaowlchi {
+            age: 0,
+            is_awake: true,
+            energy: constants::MAX_ENERGY,
+            is_ill: false,
+            health: constants::MAX_HEALTH,
+            feed: constants::MAX_FOOD,
+            poops: 0,
+            last_update: now(),
+        }
+    }
 }
 
 impl Tamaowlchi {
@@ -46,16 +69,7 @@ impl Tamaowlchi {
     }
 
     pub fn new() -> Self {
-        Tamaowlchi{
-            age: 0,
-            is_awake: true,
-            energy: constants::MAX_ENERGY,
-            is_ill: false,
-            health: constants::MAX_HEALTH,
-            feed: constants::MAX_FOOD,
-            poops: 0,
-            last_update: now(),
-        }
+        Tamaowlchi{..Default::default()}
     }
 
     pub fn update_stats (&mut self, hours_passed: i32) {
