@@ -16,21 +16,21 @@ _The Tamagotchi CLI application is a command-line driven version of the classic 
 ### Installation
 Automatic installation is not available yet so you need to manually install it:
 
-Find and download the latest binary for your os from the [release page](https://github.com/Alustrat/tamaowlshi/releases). Extract the executable from the archive and move the executable to a folder that is included in your `$PATH`. This will let you call the `tamaowlchi` command from everywhere (you may need to re-open your terminal first).
+Find and download the latest binary for your os from the [release page](https://github.com/Alustrat/tamaowlchi/releases). Extract the executable from the archive and move the executable to a folder that is included in your `$PATH`. This will let you call the `tamaowlchi` command from everywhere (you may need to re-open your terminal first).
 
 Edit your `.zshrc`, `.bashrc` or `.profile` to include the following line:
 ```
-tamaowlshi status
+tamaowlchi status
 ```
-This will give you news about your tamaowlshi every time you open a new terminal and prevent you for forgetting him.
+This will give you news about your tamaowlchi every time you open a new terminal and prevent you for forgetting him.
 
 ### Usage
 
-Start by creating a new tamaowlshi using `tamaowlshi new`, then you can run `tamaowlshi status` to see how it goes. If your tamaowlshi die, you can create another one with the same `tamaowlshi new` command.
+Start by creating a new tamaowlchi using `tamaowlchi new`, then you can run `tamaowlchi status` to see how it goes. If your tamaowlchi die, you can create another one with the same `tamaowlchi new` command.
 
-Available commands to take care of your tamaowlshi are:
+Available commands to take care of your tamaowlchi are:
 ```
-~$ tamaowlshi --help
+~$ tamaowlchi --help
 
 Usage: tamaowlchi <COMMAND>
 

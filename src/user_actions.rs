@@ -12,7 +12,7 @@ pub fn create_new_tamaowlchi() -> Tamaowlchi {
 
 pub fn clean(tamaowlchi: &mut Tamaowlchi) {
     if tamaowlchi.is_dead {
-        return println!("You can't do that, your Tamaowlshi is dead.")
+        return println!("You can't do that, your Tamaowlchi is dead.")
     }
     if tamaowlchi.poops == 0 {
         return println!("There is no poops to clean.")
@@ -24,7 +24,7 @@ pub fn clean(tamaowlchi: &mut Tamaowlchi) {
 
 pub fn feed(tamaowlchi: &mut Tamaowlchi) {
     if tamaowlchi.is_dead {
-        return println!("You can't do that, your Tamaowlshi is dead.")
+        return println!("You can't do that, your Tamaowlchi is dead.")
     }
     if !tamaowlchi.is_awake {
         return println!("You can't feed your tamaowlchi while he is sleeping.")
@@ -40,7 +40,7 @@ pub fn feed(tamaowlchi: &mut Tamaowlchi) {
 
 pub fn heal(tamaowlchi: &mut Tamaowlchi) {
     if tamaowlchi.is_dead {
-        return println!("You can't do that, your Tamaowlshi is dead.")
+        return println!("You can't do that, your Tamaowlchi is dead.")
     }
     if !tamaowlchi.is_awake {
         return println!("You can't heal your tamaowlchi while he is sleeping.")
@@ -56,7 +56,7 @@ pub fn heal(tamaowlchi: &mut Tamaowlchi) {
 
 pub fn put_to_bed(tamaowlchi: &mut Tamaowlchi) {
     if tamaowlchi.is_dead {
-        return println!("You can't do that, your Tamaowlshi is dead.")
+        return println!("You can't do that, your Tamaowlchi is dead.")
     }
     if tamaowlchi.energy == constants::MAX_ENERGY {
         return println!("Your tamaowlchi is not tired and doesn't want to go to bed.");
@@ -68,7 +68,7 @@ pub fn put_to_bed(tamaowlchi: &mut Tamaowlchi) {
 
 pub fn wake_up(tamaowlchi: &mut Tamaowlchi) {
     if tamaowlchi.is_dead {
-        return println!("You can't do that, your Tamaowlshi is dead.")
+        return println!("You can't do that, your Tamaowlchi is dead.")
     }
     if tamaowlchi.energy == 0 {
         return println!("Your tamaowlchi is too tired to be awake.");
@@ -82,11 +82,11 @@ pub fn status(tamaowlchi: &Tamaowlchi) {
     print_owl_ascii_art(tamaowlchi.is_dead, tamaowlchi.age);
     
     if tamaowlchi.is_dead {
-        println!("Your Tamaowlshi is dead.");
+        println!("Your Tamaowlchi is dead.");
         return
     }
 
-    println!("Your Tamaowlshi is {} years old and is currently {}.", tamaowlchi.age, tamaowlchi.sleep_status());
+    println!("Your Tamaowlchi is {} years old and is currently {}.", tamaowlchi.age, tamaowlchi.sleep_status());
 
     if tamaowlchi.is_ill && tamaowlchi.health <= constants::HEALTH_WARNING_THRESHOLD {
         println!("Hurry up, he is ill and his health is really low!");
