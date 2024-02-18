@@ -8,6 +8,8 @@ pub struct Tamaowlchi {
     #[serde(default)]
     pub age: i32,
     #[serde(default)]
+    pub is_dead: bool,
+    #[serde(default)]
     pub is_awake: bool,
     #[serde(default)]
     pub is_ill: bool,
@@ -27,6 +29,7 @@ impl Default for Tamaowlchi {
     fn default() -> Self {
         Tamaowlchi {
             age: 0,
+            is_dead: false,
             is_awake: true,
             energy: constants::MAX_ENERGY,
             is_ill: false,
@@ -73,7 +76,7 @@ impl Tamaowlchi {
     }
 
     pub fn update_stats (&mut self, hours_passed: i32) {
-        if hours_passed == 0 {
+        if self.is_dead || hours_passed == 0 {
             return;
         }
 
@@ -91,6 +94,7 @@ impl Tamaowlchi {
         self.age = cmp::min(self.age + (hours_passed /24), constants::MAX_AGE);
 
         if self.age == constants::MAX_AGE {
+            self.is_dead = true;
             println!("Oh no! Your tamaowlshi has died from age.");
         }
     }
@@ -105,6 +109,7 @@ impl Tamaowlchi {
         self.health = cmp::max(self.health - hours_passed, 0);
 
         if self.health == 0 {
+            self.is_dead = true;
             println!("Oh no! Your tamaowlshi has died from disease.");
         }
     }
@@ -140,6 +145,7 @@ impl Tamaowlchi {
         }
 
         if self.feed == 0 {
+            self.is_dead = true;
             println!("Oh no! Your tamaowlshi has died from starvation!");
         }
     }
