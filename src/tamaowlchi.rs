@@ -88,18 +88,18 @@ impl Tamaowlchi {
         self.last_update = now();
     }
 
-    /// Tamaowlshi age icnrease by 1 every 24 hours.
+    /// Tamaowlchi age icnrease by 1 every 24 hours.
     /// If it reach the maximum, it dies.
     pub fn update_age (&mut self, hours_passed: i32) {
         self.age = cmp::min(self.age + (hours_passed /24), constants::MAX_AGE);
 
         if self.age == constants::MAX_AGE {
             self.is_dead = true;
-            println!("Oh no! Your tamaowlshi has died from age.");
+            println!("Oh no! Your tamaowlchi has died from age.");
         }
     }
 
-    /// Tamaowlshi health reduce by 1 per hour when he is ill.
+    /// Tamaowlchi health reduce by 1 per hour when he is ill.
     /// If it reach 0, he dies.
     pub fn update_health(&mut self, hours_passed: i32) {
         if !self.is_ill {
@@ -110,11 +110,11 @@ impl Tamaowlchi {
 
         if self.health == 0 {
             self.is_dead = true;
-            println!("Oh no! Your tamaowlshi has died from disease.");
+            println!("Oh no! Your tamaowlchi has died from disease.");
         }
     }
 
-    /// Tamaowlshi energy decrease by 1 per hour when he is awake
+    /// Tamaowlchi energy decrease by 1 per hour when he is awake
     /// and increase by 1 per hour when he is asleep.
     /// If it reach 0, he autmatically fell asleep and if it each the max,
     /// it automatically wake up.
@@ -127,14 +127,14 @@ impl Tamaowlchi {
 
         if self.is_awake && self.energy == 0 {
             self.is_awake = false;
-            println!("Your tamaowlshi is too tired and fall asleep.")
+            println!("Your tamaowlchi is too tired and fall asleep.")
         } else if !self.is_awake && self.energy == constants::MAX_ENERGY {
             self.is_awake = true;
-            println!("Your tamaowlshi is waking up.")
+            println!("Your tamaowlchi is waking up.")
         }
     }
 
-    /// Tamaowlshi feed decrease by 1 per hours when he is awake
+    /// Tamaowlchi feed decrease by 1 per hours when he is awake
     /// and by 1 per 2 hours when he is asleep.
     /// if it reachs 0, he dies.
     pub fn update_feed (&mut self, hours_passed: i32) {
@@ -146,12 +146,12 @@ impl Tamaowlchi {
 
         if self.feed == 0 {
             self.is_dead = true;
-            println!("Oh no! Your tamaowlshi has died from starvation!");
+            println!("Oh no! Your tamaowlchi has died from starvation!");
         }
     }
 
-    /// Tamaowlshi poop increase by 1 each 12 hours.
-    /// If tamaowlshi poop is at its max, tamaowlshi become ill.
+    /// Tamaowlchi poop increase by 1 each 12 hours.
+    /// If tamaowlchi poop is at its max, tamaowlchi become ill.
     pub fn update_poops (&mut self, hours_passed: i32) {
         if !self.is_awake {
             return;
@@ -161,7 +161,7 @@ impl Tamaowlchi {
 
         if self.poops == constants::MAX_POOP && !self.is_ill {
             self.is_ill = true;
-            println!("Your tamaowlshi became ill due to a lack of hygiene.")
+            println!("Your tamaowlchi became ill due to a lack of hygiene.")
         }
     }
 }

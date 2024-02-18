@@ -46,7 +46,7 @@ fn get_config_file_path() -> path::PathBuf {
         }
     }
 
-    config_path.push("tamaowlshi-config.txt");
+    config_path.push("tamaowlchi-config.txt");
 
     config_path
 }
